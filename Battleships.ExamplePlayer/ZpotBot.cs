@@ -1,4 +1,8 @@
-﻿namespace Battleships.ExamplePlayer
+﻿using System.Linq;
+using System.Collections.Generic;
+
+
+namespace Battleships.ExamplePlayer
 {
     using Battleships.Player.Interface;
     using System.Collections.Generic;
@@ -6,7 +10,21 @@
     public class ZpotBot : IBattleshipsBot
     {
         internal IGridSquare LastTarget;
-        private readonly HashSet<IGridSquare> shipsHit = new HashSet<IGridSquare>();
+
+        private int BattleId = 0;
+        private readonly Dictionary<GridSquare, SquareStats> movesMade = new Dictionary<GridSquare, SquareStats>();
+
+        public ZpotBot()
+        {
+            // initialise movesMade dict
+            for (char c = 'A'; c < 'K'; c++)
+            {
+                for (int i = 1; i < 11; i++)
+                {
+                    movesMade.Add(new GridSquare(c, i), new SquareStats());
+                }
+            }
+        }
 
         public string Name
         {
@@ -15,6 +33,10 @@
 
         public IEnumerable<IShipPosition> GetShipPositions()
         {
+            // this method is called at start of each new battle
+            // increment battle ID at this point
+            BattleId++;
+
             return new List<IShipPosition>
                    {
                        GetShipPosition('A', 1, 'A', 5),
@@ -34,13 +56,11 @@
 
         public void HandleShotResult(IGridSquare square, bool wasHit)
         {
-            if (wasHit)
-            {
-                shipsHit.Add(square);
-            }
+            // add result to movesMade dict
+            movesMade[(GridSquare)square].AddNewResult(BattleId, wasHit);
         }
 
-        public void HandleOpponentsShot(IGridSquare square) {}
+        public void HandleOpponentsShot(IGridSquare square) { }
 
         private static ShipPosition GetShipPosition(char startRow, int startColumn, char endRow, int endColumn)
         {
