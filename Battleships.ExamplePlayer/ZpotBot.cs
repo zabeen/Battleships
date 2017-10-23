@@ -1,12 +1,9 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
-
+using Battleships.Player.Interface;
 
 namespace Battleships.ExamplePlayer
 {
-    using Battleships.Player.Interface;
-    using System.Collections.Generic;
-
     public class ZpotBot : IBattleshipsBot
     {
         internal IGridSquare LastTarget;
@@ -17,9 +14,9 @@ namespace Battleships.ExamplePlayer
         public ZpotBot()
         {
             // initialise movesMade dict
-            for (char c = 'A'; c < 'K'; c++)
+            for (char c = GameRules.FIRST_ROW; c <= GameRules.LAST_ROW; c++)
             {
-                for (int i = 1; i < 11; i++)
+                for (int i = GameRules.FIRST_COL; i <= GameRules.LAST_COL; i++)
                 {
                     movesMade.Add(new GridSquare(c, i), new SquareStats());
                 }
@@ -33,18 +30,14 @@ namespace Battleships.ExamplePlayer
 
         public IEnumerable<IShipPosition> GetShipPositions()
         {
-            // this method is called at start of each new battle
+            // As this method is called at start of each new battle
             // increment battle ID at this point
             BattleId++;
 
-            return new List<IShipPosition>
-                   {
-                       GetShipPosition('A', 1, 'A', 5),
-                       GetShipPosition('C', 1, 'C', 4),
-                       GetShipPosition('E', 1, 'E', 3),
-                       GetShipPosition('G', 1, 'G', 3),
-                       GetShipPosition('I', 1, 'I', 2)
-                   };
+            // get new positions
+            SquareCalculator squareCalc = new SquareCalculator();
+
+            return squareCalc.GetShipPositions();
         }
 
         public IGridSquare SelectTarget()
