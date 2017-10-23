@@ -15,14 +15,14 @@ namespace Battleships.ExamplePlayer
             get { return ResultsSoFar.Where(r => r.WasHit).Count(); }
         }
 
-        public void AddNewResult(int battleId, bool wasHit)
+        public void AddNewResult(int roundId, bool wasHit)
         {
-            ResultsSoFar.Add(new SquareResult() { BattleId = battleId, WasHit = wasHit });
+            ResultsSoFar.Add(new SquareResult() { RoundId = roundId, WasHit = wasHit });
         }
 
         public class SquareResult
         {
-            public int BattleId { get; set; }
+            public int RoundId { get; set; }
             public bool WasHit { get; set; }
         }
     }

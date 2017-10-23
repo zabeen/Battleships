@@ -8,7 +8,7 @@ namespace Battleships.ExamplePlayer
     {
         internal IGridSquare LastTarget;
 
-        private int BattleId = 0;
+        private int RoundId = 0;
         private readonly Dictionary<GridSquare, SquareStats> movesMade = new Dictionary<GridSquare, SquareStats>();
 
         public ZpotBot()
@@ -30,9 +30,9 @@ namespace Battleships.ExamplePlayer
 
         public IEnumerable<IShipPosition> GetShipPositions()
         {
-            // As this method is called at start of each new battle
-            // increment battle ID at this point
-            BattleId++;
+            // As this method is called at start of each new round
+            // increment Round ID at this point
+            RoundId++;
 
             // get new positions
             SquareCalculator squareCalc = new SquareCalculator();
@@ -50,7 +50,7 @@ namespace Battleships.ExamplePlayer
         public void HandleShotResult(IGridSquare square, bool wasHit)
         {
             // add result to movesMade dict
-            movesMade[(GridSquare)square].AddNewResult(BattleId, wasHit);
+            movesMade[(GridSquare)square].AddNewResult(RoundId, wasHit);
         }
 
         public void HandleOpponentsShot(IGridSquare square) { }
