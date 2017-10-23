@@ -15,6 +15,7 @@
             player = new ZpotBot();
         }
 
+        /*
         [Test]
         public void First_square_is_A_1()
         {
@@ -63,5 +64,6 @@
             // Then
             secondTarget.Should().Be(new GridSquare('A', 1));
         }
+        */
     }
 }
