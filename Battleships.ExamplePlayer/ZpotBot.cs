@@ -35,9 +35,9 @@ namespace Battleships.ExamplePlayer
             RoundId++;
 
             // get new positions
-            SquareCalculator squareCalc = new SquareCalculator();
+            ShipPositioner positioner = new ShipPositioner();
 
-            return squareCalc.GetShipPositions();
+            return positioner.GetShipPositions();
         }
 
         public IGridSquare SelectTarget()

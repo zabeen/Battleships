@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameRules.cs" />
+    <Compile Include="ShipPositioner.cs" />
     <Compile Include="SquareCalculator.cs" />
     <Compile Include="SquareStats.cs" />
     <Compile Include="Tests\ExamplePlayerTests.cs" />
