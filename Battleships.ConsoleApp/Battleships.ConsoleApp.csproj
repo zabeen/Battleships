@@ -57,9 +57,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Battleships.ExamplePlayer\Battleships.ExamplePlayer.csproj">
+    <ProjectReference Include="..\Battleships.ExamplePlayer\Battleships.ZpotBot.csproj">
       <Project>{21a20fc7-e30f-451f-b562-69768fbbef4e}</Project>
-      <Name>Battleships.ExamplePlayer</Name>
+      <Name>Battleships.ZpotBot</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

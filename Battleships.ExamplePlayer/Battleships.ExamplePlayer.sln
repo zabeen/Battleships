@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battleships.ExamplePlayer", "Battleships.ExamplePlayer.csproj", "{21A20FC7-E30F-451F-B562-69768FBBEF4E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battleships.ZpotBot", "Battleships.ZpotBot.csproj", "{21A20FC7-E30F-451F-B562-69768FBBEF4E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{49BD91A7-4D5E-4639-B4F9-12707E23A009}"
 	ProjectSection(SolutionItems) = preProject

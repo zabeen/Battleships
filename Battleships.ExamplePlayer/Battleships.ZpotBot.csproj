@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExamplePlayerTests.cs" />
-    <Compile Include="ExamplePlayer.cs" />
+    <Compile Include="ZpotBot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
